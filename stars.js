@@ -6,9 +6,6 @@ export function starAnimation() {
 
   const starCount = 100;
   const stars = [];
-  const widthRange = [50, window.innerWidth - 50];
-  const heightRange = [50, window.innerHeight - 50];
-
   const centerX = window.innerWidth / 2;
   const centerY = window.innerHeight / 2;
 
@@ -18,11 +15,14 @@ export function starAnimation() {
   }
 
   function createStars() {
-    for (let star = 1; star <= starCount; ++star) {
+    for (let i=0; i<starCount; ++i) {
+      const angle = Math.random() * 2 * Math.PI;
+      const radius = Math.random() * Math.max(window.innerWidth, window.innerHeight) * 1.5;
+
       stars.push({
-        x: Math.random() * (widthRange[1] - widthRange[0]) + widthRange[0],
-        y: Math.random() * (heightRange[1] - heightRange[0]) + heightRange[0],
-        radius: Math.random() * 2 + 1,
+        x: centerX + radius * Math.cos(angle),
+        y: centerY + radius * Math.sin(angle),
+        radius: 2,
         speed: 5
       });
     }
@@ -32,7 +32,7 @@ export function starAnimation() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = "#FAFAFA";
 
-    stars.forEach(star => {
+    stars.forEach((star, index) => {
       ctx.beginPath();
       ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
       ctx.fill();
@@ -46,7 +46,7 @@ export function starAnimation() {
         star.y += (dy / distance) * star.speed;
       }
     });
-
+    
     animationFrameId = requestAnimationFrame(animate);
   }
 
