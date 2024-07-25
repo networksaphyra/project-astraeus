@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Quicksand:wght@300..700&display=swap');
+
+$black: #000033;
+$blue: #0000A6;
+$bright-blue: #0000f4;
+$dark-blue: #000040;
+$white: #ffffff;
+
 * {
   padding: 0;
   margin: 0;
@@ -5,12 +13,12 @@
 }
 
 body {
-  overflow: hidden;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Quicksand", sans-serif;
 }
 
 #loadingScreen {
@@ -18,7 +26,7 @@ body {
   z-index: -10;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(75deg, #000033, #0000A6);
+  background: linear-gradient(75deg, $black, $blue);
 }
 
 #starCanvas {
@@ -31,20 +39,65 @@ body {
 
 #hero {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   opacity: 0;
   visibility: hidden;
   transition: opacity 2.5s;
+  color: $white;
+  padding: 20px;
 
   img {
-    max-width: 75%;
-    max-height: 75%;
+    transform: translateY(-20%);
+    max-width: 60%;
+    max-height: 60%;
+    border-radius: 50%;
+    animation: glow 3s infinite;
+    margin-bottom: 20px;
+  }
+
+  &.show {
+    visibility: visible;
+    opacity: 1;
+  }  
+
+  .hero-content {
+    display: flex;
+    color: $white;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  p {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: $white;
+  }
+
+  button {
+    padding: 1em 2em;
+    font-size: 1.1em;
+    color: $white;
+    background: $blue;
+    border: solid 4px $blue;
+    border-radius: 5px;
+    transition: background 1s, transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      background: $bright-blue;
+      transform: scale(1.1);
+      box-shadow: 0px 4px 12px rgba($color: #000000, $alpha: 0.4);
+    }
   }
 }
 
-#hero.show {
-  opacity: 1;
-  visibility: visible; 
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0px 0px 10px $blue, 0px 0px 20px $black, 0px 0px 30px $black, 0px 0px 40px $black, 0px 0px 50px $black, 0px 0px 60px $black;
+  }
+  50% {
+    box-shadow: 0px 0px 20px $blue, 0px 0px 30px $black, 0px 0px 40px $black, 0px 0px 50px $black, 0px 0px 60px $black, 0px 0px 70px $black;
+  }
 }

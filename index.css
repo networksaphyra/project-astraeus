@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Quicksand:wght@300..700&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -5,12 +6,12 @@
 }
 
 body {
-  overflow: hidden;
   width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Quicksand", sans-serif;
 }
 
 #loadingScreen {
@@ -31,21 +32,61 @@ body {
 
 #hero {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   opacity: 0;
   visibility: hidden;
   transition: opacity 2.5s;
+  color: #ffffff;
+  padding: 20px;
 }
 #hero img {
-  max-width: 75%;
-  max-height: 75%;
+  transform: translateY(-20%);
+  max-width: 60%;
+  max-height: 60%;
+  border-radius: 50%;
+  animation: glow 3s infinite;
+  margin-bottom: 20px;
+}
+#hero.show {
+  visibility: visible;
+  opacity: 1;
+}
+#hero .hero-content {
+  display: flex;
+  color: #ffffff;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+#hero p {
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #ffffff;
+}
+#hero button {
+  padding: 1em 2em;
+  font-size: 1.1em;
+  color: #ffffff;
+  background: #0000A6;
+  border: solid 4px #0000A6;
+  border-radius: 5px;
+  transition: background 1s, transform 0.3s, box-shadow 0.3s;
+}
+#hero button:hover {
+  background: #0000f4;
+  transform: scale(1.1);
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
 }
 
-#hero.show {
-  opacity: 1;
-  visibility: visible;
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0px 0px 10px #0000A6, 0px 0px 20px #000033, 0px 0px 30px #000033, 0px 0px 40px #000033, 0px 0px 50px #000033, 0px 0px 60px #000033;
+  }
+  50% {
+    box-shadow: 0px 0px 20px #0000A6, 0px 0px 30px #000033, 0px 0px 40px #000033, 0px 0px 50px #000033, 0px 0px 60px #000033, 0px 0px 70px #000033;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */
