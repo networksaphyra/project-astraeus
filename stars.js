@@ -3,7 +3,7 @@ let animationFrameId;
 export function starAnimation() {
   const canvas = document.getElementById("starCanvas");
   const ctx = canvas.getContext("2d");
-  const starCount = 200;
+  const starCount = 150;
   const stars = [];
   const centerX = window.innerWidth / 2;
   const centerY = window.innerHeight / 2;

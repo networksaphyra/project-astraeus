@@ -49,7 +49,7 @@ body {
   padding: 20px;
 
   img {
-    transform: translateY(-20%);
+    transform: translateY(-5%);
     max-width: 60%;
     max-height: 60%;
     border-radius: 50%;
@@ -83,10 +83,10 @@ body {
     background: $blue;
     border: solid 4px $blue;
     border-radius: 5px;
-    transition: background 1s, transform 0.3s, box-shadow 0.3s;
+    transition: background 1s, transform 0.3s ease-in-out, box-shadow 0.3s;
 
     &:hover {
-      background: $bright-blue;
+      background: $dark-blue;
       transform: scale(1.1);
       box-shadow: 0px 4px 12px rgba($color: #000000, $alpha: 0.4);
     }
@@ -95,9 +95,9 @@ body {
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0px 0px 10px $blue, 0px 0px 20px $black, 0px 0px 30px $black, 0px 0px 40px $black, 0px 0px 50px $black, 0px 0px 60px $black;
+    box-shadow: 0px 0px 10px $dark-blue, 0px 0px 20px $black, 0px 0px 30px $black, 0px 0px 40px $black, 0px 0px 50px $black;
   }
   50% {
-    box-shadow: 0px 0px 20px $blue, 0px 0px 30px $black, 0px 0px 40px $black, 0px 0px 50px $black, 0px 0px 60px $black, 0px 0px 70px $black;
+    box-shadow: 0px 0px 20px $dark-blue, 0px 0px 30px $black, 0px 0px 40px $black, 0px 0px 50px $black, 0px 0px 60px $black;
   }
 }
