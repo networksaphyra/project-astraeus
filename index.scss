@@ -6,25 +6,45 @@
 
 body {
   overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #loadingScreen {
   position: fixed;
-  z-index: 9999;
+  z-index: -10;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(#000033, #000066);
+  background: linear-gradient(75deg, #000033, #0000A6);
 }
 
 #starCanvas {
   position: absolute;
   top: 0;
   left: 0;
+  width: 100vw;
+  height: 100vh;
 }
 
-#logo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  opacity: 50;
+#hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 2.5s;
+
+  img {
+    max-width: 75%;
+    max-height: 75%;
+  }
+}
+
+#hero.show {
+  opacity: 1;
+  visibility: visible; 
 }
