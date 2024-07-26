@@ -72,13 +72,26 @@ p, button, div {
     align-items: center;
     gap: 30px;
     color: $white;
+
+    p {
+      font-size: 1.5em;
+      font-weight: 200;
+      color: $white;
+
+      span.gradient-text {
+        background: linear-gradient(90deg, #ff8a00, #e52e71, #9d50bb);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      span.gradient-green-text {
+        background: linear-gradient(90deg, #00ff00, #009900);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
   }
 
-  p {
-    font-size: 1.5em;
-    font-weight: 200;
-    color: $white;
-  }
 
   button {
     background: rgba($blue, 0.1);

@@ -64,10 +64,20 @@ p, button, div {
   gap: 30px;
   color: #ffffff;
 }
-#hero p {
+#hero .hero-content p {
   font-size: 1.5em;
   font-weight: 200;
   color: #ffffff;
+}
+#hero .hero-content p span.gradient-text {
+  background: linear-gradient(90deg, #ff8a00, #e52e71, #9d50bb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#hero .hero-content p span.gradient-green-text {
+  background: linear-gradient(90deg, #00ff00, #009900);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 #hero button {
   background: rgba(0, 0, 166, 0.1);
