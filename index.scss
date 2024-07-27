@@ -4,8 +4,8 @@ $black: #111720;
 $blue: #0000A6;
 $light-blue: #0000f4;
 $dark-blue: #000040;
-$light-button-color-from-andy: #4242c0;
-$dark-button-color-from-my-boy-andy: #111720;
+$light-button-color-from-andy: #3f3fac; 
+$dark-button-color-from-my-boy-andy: $dark-blue;
 $white: #ffffff;
 
 * {
@@ -368,14 +368,6 @@ main {
       font-size: 0.8rem;
       color: rgba($white, 0.7);
       margin-bottom: 1em;
-    }
-
-    hr {
-      width: 100%;
-      border: 0;
-      height: 1px;
-      background: rgba($white, 0.2);
-      margin: 1.5rem 0;
     }
 
     .created-by {
