@@ -3,14 +3,17 @@ import { starAnimation, killAll } from "./stars.js";
 $(document).ready(main);
 
 function main() {
-
   starAnimation();
+
   setTimeout(() => {
-    $("#hero").addClass("show"); 
-    setTimeout(() => {
-      $("body").css("overflow", "visible");
-    }, 200)
-  }, 1000); 
+    $("body").css("overflow", "visible");
+    fadeInSections();
+  }, 1000);
+}
 
-
+function fadeInSections() {
+  $("#hero").addClass("show");
+  $("#content").addClass("show");
+  $("#press").addClass("show");
+  $("#footer").addClass("show");
 }
