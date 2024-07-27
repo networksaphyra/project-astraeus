@@ -6,10 +6,12 @@
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   display: flex;
-  overflow: hidden;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
 }
 
 p, button, div {
@@ -19,17 +21,23 @@ p, button, div {
 #screen {
   position: fixed;
   z-index: -10;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(75deg, #111720, #111720);
 }
 
 #starCanvas {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 #hero {
@@ -37,20 +45,20 @@ p, button, div {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
   color: #ffffff;
   opacity: 0;
   visibility: hidden;
   transition: opacity 2.5s;
   padding: 10px;
+  transform: translateY(-5%);
 }
 #hero img {
-  transform: translateY(-5%);
+  transform: translateY(10%);
   max-width: 40%;
   max-height: 40%;
   border-radius: 50%;
-  animation: slightGlow 3s infinite;
   margin-bottom: 20px;
 }
 #hero.show {
@@ -112,10 +120,14 @@ p, button, div {
   transform: scale(1.03);
 }
 
+#content, #press, #footer {
+  width: 100%;
+}
+
 #content {
   background: linear-gradient(180deg, rgba(17, 23, 32, 0.6), rgba(0, 0, 64, 0.6));
   color: #ffffff;
-  padding: 10em 2em 5em 2em;
+  padding: 10em 2em 3em 2em;
 }
 #content .content-wrapper {
   max-width: 1200px;
@@ -145,7 +157,7 @@ p, button, div {
   margin-bottom: 4rem;
 }
 #content .features .feature-card {
-  background: rgba(0, 0, 166, 0.1);
+  background: rgba(0, 0, 244, 0.1);
   border: 2px solid #0000f4;
   border-radius: 15px;
   padding: 2rem;
@@ -169,7 +181,7 @@ p, button, div {
 #press {
   background: linear-gradient(180deg, rgba(0, 0, 64, 0.6), rgba(17, 23, 32, 0.6));
   color: #ffffff;
-  padding: 5rem 2rem;
+  padding: 2em 2em 4em 2em;
 }
 #press h2, #press h3 {
   font-family: "Quicksand", sans-serif;
@@ -190,7 +202,7 @@ p, button, div {
   gap: 2rem;
 }
 #press .article-item {
-  background: rgba(0, 0, 166, 0.1);
+  background: rgba(0, 0, 244, 0.1);
   border: 2px solid #0000f4;
   border-radius: 15px;
   padding: 2rem;
@@ -200,7 +212,7 @@ p, button, div {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease;
 }
 #press .article-item:hover {
   transform: translateY(-10px);
@@ -242,9 +254,15 @@ p, button, div {
   gap: 2rem;
 }
 #press .backers img {
-  max-width: 200px;
+  max-width: 400px;
+  min-width: 180px;
+  width: 20%;
   height: auto;
-  width: 100%;
+}
+#press .backers #greenhouse {
+  width: 40%;
+  min-width: 220px;
+  max-width: 40%;
 }
 
 #footer {
@@ -306,15 +324,6 @@ p, button, div {
 }
 #footer .footer-content .created-by a:hover {
   color: #0000f4;
-}
-
-@keyframes slightGlow {
-  0%, 100% {
-    box-shadow: 0px 0px 10px #111720, 0px 0px 20px #0000f4, 0px 0px 30px #000040;
-  }
-  50% {
-    box-shadow: 0px 0px 20px #111720, 0px 0px 30px #0000f4, 0px 0px 40px #000040;
-  }
 }
 
 /*# sourceMappingURL=index.css.map */

@@ -80,3 +80,8 @@ export function killAll() {
     canvas.parentNode.removeChild(canvas);
   }
 }
+
+window.addEventListener('resize', () => {
+  setupCanvas();
+  createStars();
+});
