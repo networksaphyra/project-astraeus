@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Quicksand:wght@300..700&display=swap");
 * {
   padding: 0;
@@ -79,11 +80,6 @@ main {
   font-weight: 200;
   color: #ffffff;
 }
-#hero .hero-content p span.gradient-text {
-  background: linear-gradient(90deg, #17BBFF, #447DFF);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
 #hero button {
   background: rgba(0, 0, 166, 0.1);
   border: 2px solid #0000f4;
@@ -120,29 +116,43 @@ main {
   transform: scale(1.03);
 }
 
-#content, #press, #footer {
+span.gradient-text {
+  background: linear-gradient(90deg, #17BBFF, #447DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#content, #press, #footer, #vision, #contact {
   width: 100%;
   opacity: 0;
   visibility: hidden;
   transition: opacity 2.5s;
   transform: translateY(-5%);
 }
-#content.show, #press.show, #footer.show {
+#content.show, #press.show, #footer.show, #vision.show, #contact.show {
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
 }
 
-#content {
+#content, #vision, #structure, #contact {
   background: linear-gradient(180deg, rgba(17, 23, 32, 0.6), rgba(0, 0, 64, 0.6));
   color: #ffffff;
   padding: 10em 2em 3em 2em;
 }
-#content .content-wrapper {
+#content .content-wrapper, #vision .content-wrapper, #structure .content-wrapper, #contact .content-wrapper {
   max-width: 1200px;
   margin: 0 auto;
 }
-#content h2 {
+#content a, #vision a, #structure a, #contact a {
+  color: #ffffff;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+#content a:hover, #vision a:hover, #structure a:hover, #contact a:hover {
+  color: #0000f4;
+}
+#content h2, #vision h2, #structure h2, #contact h2 {
   font-family: "Quicksand", sans-serif;
   font-size: 2.5rem;
   margin-bottom: 2rem;
@@ -151,21 +161,21 @@ main {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-#content .mission-statement {
+#content .statement, #vision .statement, #structure .statement, #contact .statement {
   text-align: center;
   font-size: 1.2rem;
   max-width: 800px;
   margin: 0 auto;
   margin-bottom: 4em;
 }
-#content .features {
+#content .features, #vision .features, #structure .features, #contact .features {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   gap: 2rem;
   margin-bottom: 4rem;
 }
-#content .features .feature-card {
+#content .features .feature-card, #vision .features .feature-card, #structure .features .feature-card, #contact .features .feature-card {
   background: rgba(0, 0, 244, 0.1);
   border: 2px solid #0000f4;
   border-radius: 15px;
@@ -175,22 +185,42 @@ main {
   text-align: center;
   transition: transform 0.3s ease;
 }
-#content .features .feature-card:hover {
+#content .features .feature-card:hover, #vision .features .feature-card:hover, #structure .features .feature-card:hover, #contact .features .feature-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 10px 20px rgba(0, 0, 244, 0.2);
 }
-#content .features .feature-card h3 {
+#content .features .feature-card h3, #vision .features .feature-card h3, #structure .features .feature-card h3, #contact .features .feature-card h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
 }
-#content .features .feature-card p {
+#content .features .feature-card p, #vision .features .feature-card p, #structure .features .feature-card p, #contact .features .feature-card p {
   font-size: 1rem;
+}
+#content ul, #vision ul, #structure ul, #contact ul {
+  list-style-type: none; /* Remove default bullets */
+  padding: 0; /* Remove default padding */
+  margin: 20px 0; /* Space above and below the list */
+}
+#content ul li, #vision ul li, #structure ul li, #contact ul li {
+  margin-bottom: 15px; /* More space between list items */
+  padding-left: 25px; /* Indentation for list items */
+  position: relative; /* Position for custom bullet */
+}
+#content ul li::before, #vision ul li::before, #structure ul li::before, #contact ul li::before {
+  content: "•"; /* Custom bullet */
+  position: absolute; /* Position the bullet */
+  left: 0; /* Align the bullet to the left */
+  color: #007BFF; /* Bullet color */
+}
+#content h3, #vision h3, #structure h3, #contact h3 {
+  padding: 15px;
 }
 
 #press {
   background: linear-gradient(180deg, rgba(0, 0, 64, 0.6), rgba(17, 23, 32, 0.6));
   color: #ffffff;
   padding: 2em 2em 4em 2em;
+  /* For mobile devices */
 }
 #press h2, #press h3 {
   font-family: "Quicksand", sans-serif;
@@ -206,9 +236,8 @@ main {
 }
 #press .article-list {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
+  transition: transform 0.5s ease-in-out;
+  width: 100%; /* Adjust based on the number of slides */
 }
 #press .article-item {
   background: rgba(0, 0, 244, 0.1);
@@ -235,7 +264,7 @@ main {
 }
 #press .article-item .article-content img {
   max-width: 120px;
-  max-height: 50px;
+  max-height: 70px;
   margin-bottom: 1.5rem;
 }
 #press .article-item .article-content p {
@@ -263,15 +292,27 @@ main {
   gap: 2rem;
 }
 #press .backers img {
-  max-width: 400px;
   min-width: 180px;
-  width: 20%;
+  width: 40%;
   height: auto;
 }
 #press .backers #greenhouse {
   width: 40%;
   min-width: 220px;
   max-width: 40%;
+}
+@media (max-width: 768px) {
+  #press .backers {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  #press img {
+    width: 100%;
+  }
+  #press #greenhouse {
+    width: 100%;
+  }
 }
 
 #footer {
@@ -326,6 +367,269 @@ main {
 }
 #footer .footer-content .created-by a:hover {
   color: #0000f4;
+}
+
+/* for carousel */
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.article-list {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Article Items aka slides */
+.article-item {
+  flex: 0 0 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* carousel dots things */
+.carousel-dots {
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+.carousel-dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-dots .active {
+  background-color: #333;
+}
+
+.article-content img {
+  width: 100%;
+}
+
+.article-content p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.article-source a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.article-source a:hover {
+  text-decoration: underline;
+}
+
+.circular-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px; /* Adjust this as needed */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.circular-image {
+  width: 100%;
+  height: auto;
+  border-radius: 25%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.circular-image:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .circular-img-container {
+    max-width: 300px;
+  }
+}
+/* copy pasted to change ul/li bullets to checks, tb refactored */
+#structure {
+  background: linear-gradient(180deg, rgba(17, 23, 32, 0.6), rgba(0, 0, 64, 0.6));
+  color: #ffffff;
+  padding: 10em 2em 3em 2em;
+}
+#structure .subtitle {
+  font-family: "Quicksand", sans-serif;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  background: linear-gradient(90deg, #17BBFF, #3162d2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#structure .content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#structure a {
+  color: #ffffff;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+#structure a:hover {
+  color: #0000f4;
+}
+#structure h2 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  background: linear-gradient(90deg, #17BBFF, #3162d2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#structure .statement {
+  text-align: center;
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-bottom: 4em;
+}
+#structure .features {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+#structure .features .feature-card {
+  background: rgba(0, 0, 244, 0.1);
+  border: 2px solid #0000f4;
+  border-radius: 15px;
+  padding: 2rem;
+  width: calc(33.333% - 2rem);
+  min-width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+#structure .features .feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 244, 0.2);
+}
+#structure .features .feature-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+#structure .features .feature-card p {
+  font-size: 1rem;
+}
+#structure ul {
+  list-style-type: none; /* Remove default bullets */
+  padding: 0; /* Remove default padding */
+  margin: 20px 0; /* Space above and below the list */
+}
+#structure ul li {
+  margin-bottom: 15px; /* More space between list items */
+  padding-left: 25px; /* Indentation for list items */
+  position: relative; /* Position for custom bullet */
+}
+#structure ul li::before {
+  content: "✔"; /* Custom bullet */
+  position: absolute; /* Position the bullet */
+  left: 0; /* Align the bullet to the left */
+  color: #007BFF; /* Bullet color */
+}
+#structure h3 {
+  padding: 15px;
+}
+
+.team h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  color: #A1A1F1;
+}
+
+.team-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-basis: 40%;
+  margin-bottom: 2rem;
+}
+
+.team-member img {
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.team-member-info {
+  text-align: center;
+}
+
+.team-member-info h3 {
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin-bottom: 1rem;
+}
+
+.team-member-info p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  color: #A1A1F1;
+  text-align: center;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 1em 9em;
+}
+
+.contact-links img {
+  width: 50px;
+  height: 50px;
+}
+
+@media (max-width: 1024px) {
+  .team-row {
+    justify-content: space-around;
+  }
 }
 
 /*# sourceMappingURL=index.css.map */

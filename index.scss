@@ -91,13 +91,10 @@ main {
       font-weight: 200;
       color: $white;
 
-      span.gradient-text {
-        background: linear-gradient(90deg, #17BBFF, #447DFF);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
+
     }
   }
+  
 
   button {
     background: rgba($blue, 0.1);
@@ -140,7 +137,13 @@ main {
   }
 }
 
-#content, #press, #footer {
+span.gradient-text {
+  background: linear-gradient(90deg, #17BBFF, #447DFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#content, #press, #footer, #vision, #contact {
   width: 100%;
   opacity: 0;
   visibility: hidden;
@@ -154,7 +157,7 @@ main {
   }
 }
 
-#content {
+#content, #vision, #structure, #contact {
   background: linear-gradient(180deg, rgba($black, 0.6), rgba($dark-blue, 0.6));
   color: $white;
   padding: 10em 2em 3em 2em;
@@ -162,6 +165,16 @@ main {
   .content-wrapper {
     max-width: 1200px;
     margin: 0 auto;
+  }
+
+  a {
+    color: $white;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $light-blue;
+    }
   }
 
   h2 {
@@ -174,7 +187,7 @@ main {
     -webkit-text-fill-color: transparent;
   }
 
-  .mission-statement {
+  .statement {
     text-align: center;
     font-size: 1.2rem;
     max-width: 800px;
@@ -212,8 +225,33 @@ main {
       p {
         font-size: 1rem;
       }
+    
 
     }
+  }
+
+    ul {
+      list-style-type: none; /* Remove default bullets */
+      padding: 0; /* Remove default padding */
+      margin: 20px 0; /* Space above and below the list */
+    }
+    
+  ul li {
+    margin-bottom: 15px; /* More space between list items */
+    padding-left: 25px; /* Indentation for list items */
+    position: relative; /* Position for custom bullet */
+  }
+  
+  ul li::before {
+    content: "•"; /* Custom bullet */
+    position: absolute; /* Position the bullet */
+    left: 0; /* Align the bullet to the left */
+    color: #007BFF; /* Bullet color */
+  }
+
+  h3 {
+    padding: 15px;
+
   }
 }
 
@@ -238,9 +276,8 @@ main {
 
   .article-list {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
+    transition: transform 0.5s ease-in-out;
+    width: 100%; /* Adjust based on the number of slides */
   }
 
   .article-item {
@@ -269,7 +306,7 @@ main {
 
       img {
         max-width: 120px;
-        max-height: 50px;
+        max-height: 70px;
         margin-bottom: 1.5rem;
       }
 
@@ -305,11 +342,10 @@ main {
     flex-direction: row;
     justify-content: center;
     gap: 2rem;
-
+  
     img {
-      max-width: 400px;
       min-width: 180px;
-      width: 20%;
+      width: 40%;
       height: auto;
     }
     
@@ -319,6 +355,24 @@ main {
       max-width: 40%;
     }
   }
+  
+  /* For mobile devices */
+  @media (max-width: 768px) { 
+    .backers {
+      flex-direction: column;
+      align-items: center; 
+      gap: 1rem; 
+    }
+    
+    img {
+      width: 100%; 
+    }
+    
+    #greenhouse {
+      width: 100%; 
+    }
+  }
+  
 }
 
 
@@ -384,5 +438,293 @@ main {
         }
       }
     }
+  }
+}
+
+
+
+
+/* for carousel */
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.article-list {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Article Items aka slides */
+.article-item {
+  flex: 0 0 100%; 
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* carousel dots things */
+.carousel-dots {
+  text-align: center;
+  padding: 10px;
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+
+.carousel-dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  border-radius: 50%;
+  background-color: #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.carousel-dots .active {
+  background-color: #333;
+}
+
+
+.article-content img {
+  width: 100%;
+}
+
+.article-content p {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.article-source a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.article-source a:hover {
+  text-decoration: underline;
+}
+
+.circular-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px; /* Adjust this as needed */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.circular-image {
+  width: 100%;
+  height: auto;
+  border-radius: 25%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.circular-image:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .circular-img-container {
+      max-width: 300px; 
+  }
+}
+
+
+/* copy pasted to change ul/li bullets to checks, tb refactored */
+#structure {
+  background: linear-gradient(180deg, rgba($black, 0.6), rgba($dark-blue, 0.6));
+  color: $white;
+  padding: 10em 2em 3em 2em;
+
+  .subtitle {
+    font-family: "Quicksand", sans-serif;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    background: linear-gradient(90deg, #17BBFF, #3162d2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  
+  a {
+    color: $white;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $light-blue;
+    }
+  }
+
+  h2 {
+    font-family: "Quicksand", sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    background: linear-gradient(90deg, #17BBFF, #3162d2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .statement {
+    text-align: center;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-bottom: 4em;
+  }
+
+  .features {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 4rem;
+
+    .feature-card {
+      background: rgba($light-blue, 0.1);
+      border: 2px solid $light-blue;
+      border-radius: 15px;
+      padding: 2rem;
+      width: calc(33.333% - 2rem);
+      min-width: 250px;
+      text-align: center;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba($light-blue, 0.2);
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+    }
+  }
+
+    ul {
+      list-style-type: none; /* Remove default bullets */
+      padding: 0; /* Remove default padding */
+      margin: 20px 0; /* Space above and below the list */
+    }
+    
+  ul li {
+    margin-bottom: 15px; /* More space between list items */
+    padding-left: 25px; /* Indentation for list items */
+    position: relative; /* Position for custom bullet */
+  }
+  
+  ul li::before {
+    content: "✔"; /* Custom bullet */
+    position: absolute; /* Position the bullet */
+    left: 0; /* Align the bullet to the left */
+    color: #007BFF; /* Bullet color */
+  }
+
+  h3 {
+    padding: 15px;
+
+  }
+}
+
+.team h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  color: #A1A1F1;
+}
+
+.team-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.team-member {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-basis: 40%;
+  margin-bottom: 2rem;
+}
+
+.team-member img {
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.team-member-info {
+  text-align: center;
+}
+
+.team-member-info h3 {
+  font-size: 1.5rem;
+  font-weight: 100;
+  margin-bottom: 1rem;
+}
+
+.team-member-info p {
+  font-size: 1rem;
+  color: #666;
+}
+
+.contact h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  font-weight: 400;
+  color: #A1A1F1; 
+  text-align: center;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 1em 9em;
+}
+
+.contact-links img {
+  width: 50px;
+  height: 50px;
+}
+
+@media (max-width: 1024px) {
+  .team-row {
+    justify-content: space-around;
   }
 }
