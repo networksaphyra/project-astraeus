@@ -12,8 +12,5 @@ function main() {
 }
 
 function fadeInSections() {
-  $("#hero").addClass("show");
-  $("#content").addClass("show");
-  $("#press").addClass("show");
-  $("#footer").addClass("show");
+  $("section").addClass("show");
 }
