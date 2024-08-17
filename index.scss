@@ -421,6 +421,10 @@ section {
       gap: 1em;
       width: calc(33% - 2em);
 
+      a {
+        color: white;
+      }
+
       p {
         color: $white;
       }
@@ -469,6 +473,7 @@ section {
   background: $black;
   color: $white;
   padding: 2em 0;
+  height: auto;
 
   .footer-content {
     display: flex;

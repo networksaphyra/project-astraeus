@@ -364,6 +364,9 @@ section.show {
   gap: 1em;
   width: calc(33% - 2em);
 }
+#team .team-container .team-member a {
+  color: white;
+}
 #team .team-container .team-member p {
   color: #ffffff;
 }
@@ -401,6 +404,7 @@ section.show {
   background: #0a0e17;
   color: #ffffff;
   padding: 2em 0;
+  height: auto;
 }
 #footer .footer-content {
   display: flex;
