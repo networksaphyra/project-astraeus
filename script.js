@@ -1,8 +1,10 @@
 import { starAnimation, killAll } from "./stars.js";
 
-$(document).ready(main);
+const fadeInSections = () => {
+  $("section").addClass("show");
+}
 
-function main() {
+const main = () => {
   starAnimation();
 
   setTimeout(() => {
@@ -11,6 +13,6 @@ function main() {
   }, 1000);
 }
 
-function fadeInSections() {
-  $("section").addClass("show");
-}
+
+$(document).ready(main);
+
