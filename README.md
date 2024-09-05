@@ -1,4 +1,2 @@
-# project-astraeus
-Have yet to add content to this site.
-
-Also, this branch will probably be archived since others are working on another branch, but I'll keep this one since it looks good.
+# Project Astraeus Website
+A website created for the non-profit in Kitchener, Ontario. Site is written in standard HTML, CSS / SCSS, and JS and features a very cool background animation.
