@@ -271,6 +271,7 @@ section.show {
   padding: 2.5rem;
   width: calc(33.333% - 2.5rem);
   min-width: 300px;
+  min-height: 100px;
   margin-bottom: 3rem;
   display: flex;
   flex-direction: column;
